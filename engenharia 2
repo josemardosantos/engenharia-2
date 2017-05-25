@@ -1,5 +1,134 @@
 <!DOCTYPE html>
-<!— Abertura do bloco de codificação em JavaScript -->
-<script>
+<html>
+  <body>
+    <!--ESTRUTURAÇÃO DA PÁGINA (D.O.M.)_________________________________________ESTRUTURAÇÃO-->
+    
+    <h1>Mitologia nordica</h1>
+    
+    <HR>
+    
+    <br><br>
+    
+    <button id='btnExibir'       onclick='exibirVentilador()'>EXIBIR</button>
+    <p   id='data1'></p>
+    <p   id='data2'></p>
+    <p   id='data3'></p>
+    <p   id='data4'></p>
+    <img align = 'center' id='data5' src='' alt='Mitologia' onclick='interagirVentilador()'>
+    <img align = 'center' id='data6' src='' alt='Mitologia' onclick='interagirVentilador()'>
+    
+    <!--________________________________________________________________________/ESTRUTURAÇÃO-->
 
-</script>
+    <script>
+      //Classe Ventilador com 4 atributos e 2 métodos                           //CLASSE VENTILADOR
+      function Ventilador( ) {
+        //ATRIBUTOS - var: privado; this: público.                              //ATRIBUTOS
+        this.modelo = "<vazio>";                                                //String   modelo
+        this.potencia = "<vazio>";                                              //String   potencia
+        this.velocidade = 0;                                                    //Integer  velocidade
+        this.ligado = false;                                                    //Boolean  ligado
+        
+        //MÉTODO PARA OBTER DADOS VIA USUÁRIO                                   //PROCEDIMENTO receberDados()
+        this.receberDados = function () {
+          this.modelo = prompt("Modelo: ");
+          this.potencia = prompt("Potência: ");
+          this.velocidade = 0;
+          this.ligado = false;
+        };
+        
+        //MÉTODO PARA EXIBIÇÃO DA INSTÂNCIA                                     //PROCEDIMENTO exibir()
+        this.exibir = function () {
+          document.getElementById("data1").innerHTML = ""  +this.modelo;
+          document.getElementById("data2").innerHTML = ""+this.potencia;
+          document.getElementById("data3").innerHTML = ""+this.velocidade;
+          document.getElementById("data4").innerHTML = ""  +this.ligado;
+          
+          if(!this.ligado)
+            document.getElementById("data5").src="odin.jpg";
+          else{
+            if(this.velocidade == 1)
+              document.getElementById("data5").src="thor.jpg";
+            if(this.velocidade == 2){
+              document.getElementById("data6").align = "right";
+			  document.getElementById("data5").src="imgVentiladorLigado2.jpg";
+			  document.getElementById("data6").src="thor.jpg";
+			}
+            if(this.velocidade == 3)
+              document.getElementById("data5").src="imgVentiladorLigado3.jpg";
+          }
+            
+        };
+        
+        //MÉTODO PARA 'LIGAR' O OBJETO                                          //PROCEDIMENTO ligar()
+        this.interagir = function () {
+          if(!this.ligado){
+            this.ligado = true;
+            this.velocidade = 1;
+          }
+          else{
+            this.velocidade++;
+            if(this.velocidade > 3){
+              this.ligado = false;
+              this.velocidade = 0;
+            }
+          }
+
+          this.exibir();
+        }
+
+      }
+
+//______________________________________________________________________________//INICIO DO SISTEMA
+
+//Objeto v1: Instância de Imagem                                            //INSTANCIAÇÃO de objetos
+      var v1 = new Ventilador();
+      var v2 = new Ventilador();
+      var v3 = new Ventilador();
+      var v4 = new Ventilador();
+
+
+//Variável do sistema
+      var numero = 1;
+
+//Métodos do sistema
+      function ObjAnterior(){
+        numero--;
+        if(numero<1) numero = 1;
+        document.getElementById("textObj").innerHTML = numero;
+      }
+
+      function ObjPosterior(){
+        numero++;
+        if(numero>4) numero = 4;
+        document.getElementById("textObj").innerHTML = numero;
+      }
+
+      function cadastrarVentilador(){
+        if(numero==1) v1.receberDados(); 
+        if(numero==2) v2.receberDados(); 
+        if(numero==3) v3.receberDados(); 
+        if(numero==4) v4.receberDados(); 
+      }
+
+      function exibirVentilador(){
+        if(numero==1) v1.exibir(); 
+        if(numero==2) v2.exibir(); 
+        if(numero==3) v3.exibir(); 
+        if(numero==4) v4.exibir(); 
+      }
+
+      function interagirVentilador(){
+        if(numero==1) v1.interagir(); 
+        if(numero==2) v2.interagir(); 
+        if(numero==3) v3.interagir(); 
+        if(numero==4) v4.interagir(); 
+      }
+
+//Instruções do sistema
+      //Diretiva: atualizar o objeto texto <em>
+      document.getElementById("textObj").innerHTML = numero;
+
+    </script>
+
+  </body>
+</html>
