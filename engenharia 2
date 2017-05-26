@@ -3,48 +3,41 @@
   <body>
     <!--ESTRUTURAÇÃO DA PÁGINA (D.O.M.)_________________________________________ESTRUTURAÇÃO-->
     
-    <h1>Mitologia nordica</h1>
-    
+    <h1>Mitologia Nórdica</h1>
+    <h1>Características da Mitologia Nórdica, criaturas, principais deuses, heróis, mitologia dos vikings</h1>
     <HR>
     
     <br><br>
     
-    <button id='btnExibir'       onclick='exibirVentilador()'>EXIBIR</button>
+    
     <p   id='data1'></p>
     <p   id='data2'></p>
     <p   id='data3'></p>
     <p   id='data4'></p>
     <img align = 'center' id='data5' src='' alt='Mitologia' onclick='interagirVentilador()'>
     <img align = 'center' id='data6' src='' alt='Mitologia' onclick='interagirVentilador()'>
+	
     
     <!--________________________________________________________________________/ESTRUTURAÇÃO-->
 
     <script>
-      //Classe Ventilador com 4 atributos e 2 métodos                           //CLASSE VENTILADOR
+	document.write("<h1>A mitologia nórdica, também conhecida como mitologia escandinava ou viking, é composta pelo conjunto de lendas, crenças e religião dos povos escandinavos antigos (que habitaram a região da Península da Escandinávia). Os principais mitos nórdicos são originários, portanto, dos reinos vikings.</h1>");
+    document.write("<h1>A mitologia nórdica era uma coleção de histórias e crenças compartilhadas pelos povos germânicos do norte. Ela foi transmitida de forma regular de geração para geração, principalmente através de poesias.</h1>");
+	document.write("<h1>Essa mitologia chegou até nós através, principalmente de textos medievais escritos durante e após o processo de cristianização da região. Outra importante fonte foram os Edas (conjunto de textos encontrados na Islândia que apresentam históricas e personagens mitológicos). A transmissão dos mitos permaneceu durante a Era Viking.</h1>");
+	  //Classe Ventilador com 4 atributos e 2 métodos                           //CLASSE VENTILADOR
       function Ventilador( ) {
         //ATRIBUTOS - var: privado; this: público.                              //ATRIBUTOS
         this.modelo = "<vazio>";                                                //String   modelo
         this.potencia = "<vazio>";                                              //String   potencia
         this.velocidade = 0;                                                    //Integer  velocidade
         this.ligado = false;                                                    //Boolean  ligado
-        
-        //MÉTODO PARA OBTER DADOS VIA USUÁRIO                                   //PROCEDIMENTO receberDados()
-        this.receberDados = function () {
-          this.modelo = prompt("Modelo: ");
-          this.potencia = prompt("Potência: ");
-          this.velocidade = 0;
-          this.ligado = false;
-        };
-        
-        //MÉTODO PARA EXIBIÇÃO DA INSTÂNCIA                                     //PROCEDIMENTO exibir()
+      
+	    //MÉTODO PARA EXIBIÇÃO DA INSTÂNCIA                                     //PROCEDIMENTO exibir()
         this.exibir = function () {
-          document.getElementById("data1").innerHTML = ""  +this.modelo;
-          document.getElementById("data2").innerHTML = ""+this.potencia;
-          document.getElementById("data3").innerHTML = ""+this.velocidade;
-          document.getElementById("data4").innerHTML = ""  +this.ligado;
-          
+         
           if(!this.ligado)
             document.getElementById("data5").src="odin.jpg";
+			
           else{
             if(this.velocidade == 1)
               document.getElementById("data5").src="thor.jpg";
@@ -52,6 +45,8 @@
               document.getElementById("data6").align = "right";
 			  document.getElementById("data5").src="imgVentiladorLigado2.jpg";
 			  document.getElementById("data6").src="thor.jpg";
+			  
+			  
 			}
             if(this.velocidade == 3)
               document.getElementById("data5").src="imgVentiladorLigado3.jpg";
@@ -132,3 +127,4 @@
 
   </body>
 </html>
+
