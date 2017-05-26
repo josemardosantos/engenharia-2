@@ -3,7 +3,7 @@
   <body>
     <!--ESTRUTURAÇÃO DA PÁGINA (D.O.M.)_________________________________________ESTRUTURAÇÃO-->
     
-    <h1>Mitologia Nórdica</h1>
+    <h1> <p align = center ”middler”> Mitologia Nórdica 10</center> </h1>
     <h1>Características da Mitologia Nórdica, criaturas, principais deuses, heróis, mitologia dos vikings</h1>
     <HR>
     
@@ -98,14 +98,7 @@
         document.getElementById("textObj").innerHTML = numero;
       }
 
-      function cadastrarVentilador(){
-        if(numero==1) v1.receberDados(); 
-        if(numero==2) v2.receberDados(); 
-        if(numero==3) v3.receberDados(); 
-        if(numero==4) v4.receberDados(); 
-      }
-
-      function exibirVentilador(){
+        function exibirVentilador(){
         if(numero==1) v1.exibir(); 
         if(numero==2) v2.exibir(); 
         if(numero==3) v3.exibir(); 
