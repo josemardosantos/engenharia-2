@@ -8,7 +8,8 @@
     <HR>
     
     <br><br>
-    
+    <body bgcolor="#74DF00"> <!-- Este site tem o plano de fundo verde! -->
+    </body>
     
     <p   id='data1'></p>
     <p   id='data2'></p>
